@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>haoyuewang27</title>
+<meta name="description" content="Projects by haoyuewang27">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:      #f7f6f3;
+  --surface: #ffffff;
+  --border:  #e2e0d9;
+  --text:    #1a1916;
+  --muted:   #6b6760;
+  --dim:     #b0ada6;
+  --accent:  #cad2c5;
+  --accent-light: rgba(42,107,94,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Layout ───────────────────────────── */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Header ───────────────────────────── */
+header {
+  padding: 50px 0 0px;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.6s ease both;
+}
+
+.name {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(18px, 5vw, 18px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.name .at {
+  color: var(--accent);
+}
+
+.tagline {
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* ── Section ──────────────────────────── */
+section {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.1s;
+}
+
+section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 20px;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 28px;
+}
+
+/* ── About ────────────────────────────── */
+.about-text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+  font-weight: 300;
+  max-width: 600px;
+}
+
+.about-text strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── Project card ─────────────────────── */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.project-header {
+  padding: 18px 28px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.project-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.project-body {
+  padding: 10px 28px;
+}
+
+.project-desc {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+/* ── GIF grid ─────────────────────────── */
+.gif-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.gif-wrap {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0a0a10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gif-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gif-wrap figcaption {
+  padding: 6px 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--dim);
+  text-align: center;
+  background: var(--surface);
+  width: 100%;
+}
+
+/* ── Feature pills ────────────────────── */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.feature {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: var(--accent-light);
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+/* ── Links ────────────────────────────── */
+.project-links {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #215749;
+}
+
+.btn-ghost {
+  border-color: var(--border);
+  color: var(--muted);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Footer ───────────────────────────── */
+footer {
+  padding: 32px 0;
+  animation: fadeUp 0.6s ease 0.2s both;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--dim);
+  font-family: 'DM Mono', monospace;
+}
+
+.footer-inner a {
+  color: var(--dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-inner a:hover { color: var(--accent); }
+
+/* ── Animation ────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Responsive ───────────────────────── */
+@media (max-width: 520px) {
+  .container { padding: 0 20px; }
+  header { padding: 48px 0 40px; }
+  .gif-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 6px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── Header ───────────────────────── -->
+  <header>
+    <div class="name"><span class="at">@</span>haoyuewang27</div>
+  </header>
+
+  <!-- ── Projects ─────────────────────── -->
+  <section>
+    <div class="section-label">Projects</div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title">Fast 2D Projection</div>
+      </div>
+      <div class="project-body">
+
+        <p class="project-desc">
+          A website that can do real time theoretical EM 2D projections from an uploaded pdb or cif file. 
+          Run locally on your computer. Just download, double click and run in your own browser!
+          <br><strong>No installation. No server. No build step.</strong>
+        </p>
+
+        <div class="gif-grid">
+          <div class="gif-wrap">
+            <img src="https://raw.githubusercontent.com/haoyuewang27/haoyuewang27.github.io/main/6pxm_example.gif"
+                 alt="Real-time 2D projection demo" loading="lazy">
+            <figcaption>Load, drag, and view</figcaption>
+          </div>
+          <div class="gif-wrap">
+            <img src="https://raw.githubusercontent.com/haoyuewang27/haoyuewang27.github.io/main/1bmt_example.gif"
+                 alt="Chain visibility demo" loading="lazy">
+            <figcaption>Hide and show chains and ligands</figcaption>
+          </div>
+        </div>
+
+        <div class="project-links">
+          <a class="btn btn-primary"
+             href="https://github.com/haoyuewang27/fast_2D_projection/blob/main/Fast_2D_Projection_Visualization%20v0.1.html"
+             download>
+            ↓ Download
+          </a>
+          <a class="btn btn-ghost"
+             href="https://github.com/haoyuewang27/fast_2D_projection"
+             target="_blank" rel="noopener">
+            GitHub →
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Footer ───────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <span>haoyuewang27</span>
+      <a href="https://github.com/haoyuewang27" target="_blank" rel="noopener">github.com/haoyuewang27</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
